@@ -1,5 +1,3 @@
-FROM alpine
+FROM maven:3.3-jdk-8-onbuild
 
-COPY script.sh /script.sh
-
-CMD ["/script.sh"]
+CMD ["javac","-cp",".","starter/start/ServiceGeneratorMain.java"]
