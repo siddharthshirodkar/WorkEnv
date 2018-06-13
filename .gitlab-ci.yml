@@ -1,0 +1,17 @@
+image: java:latest
+
+stages:
+  - build
+  
+variables:
+ GIT_SSL_NO_VERIFY: "true" 
+
+
+build:
+  stage: build
+  script: cd src; /usr/lib/jvm/java-8-openjdk-amd64/bin/javac -classpath .:../lib/gutl1jfapp_client_classes.jar:../lib/grple_client_classes.jar:../lib/gcme_client_classes.jar:../lib/gjf_client_classes.jar:../lib/uams.jar:../lib/wlthint3client.jar:../lib/j2ee.jar -d ../bin ejb/client/CMClient.java 
+  artifacts:
+    paths:
+     - src
+     - lib
+     - bin
